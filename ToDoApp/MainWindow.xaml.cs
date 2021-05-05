@@ -1,0 +1,19 @@
+﻿using System.Windows;
+
+namespace ToDoApp
+{
+    /// <summary>
+    /// Interaction logic for MainWindow.xaml
+    /// </summary>
+    public partial class MainWindow : Window
+    {
+        public MainWindow()
+        {
+            InitializeComponent();
+            DataContextChanged += (sender, args) =>
+            {
+                DataContext = args.NewValue;
+            };
+        }
+    }
+}
