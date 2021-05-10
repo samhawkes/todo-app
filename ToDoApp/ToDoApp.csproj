@@ -4,10 +4,9 @@
         <OutputType>WinExe</OutputType>
         <TargetFramework>netcoreapp3.1</TargetFramework>
         <UseWPF>true</UseWPF>
+        <Title>TODO App</Title>
+        <Authors>Sam Hawkes</Authors>
+        <Nullable>enable</Nullable>
     </PropertyGroup>
-
-    <ItemGroup>
-      <Folder Include="Model" />
-    </ItemGroup>
 
 </Project>

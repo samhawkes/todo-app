@@ -4,16 +4,34 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:viewModel="clr-namespace:ToDoApp.ViewModel"
+        xmlns:model="clr-namespace:ToDoApp.Model"
         mc:Ignorable="d"
         d:DataContext="{Binding Source={d:DesignInstance Type=viewModel:ToDoListViewModel}}">
+    <UserControl.Resources>
+        
+    </UserControl.Resources>
+    
     <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="Auto" />
         </Grid.ColumnDefinitions>
         
-        <TextBlock>
-            Hello
-        </TextBlock>
+        <StackPanel>
+            <ListView ItemsSource="{Binding ToDoItems}">
+                <ListView.ItemTemplate>
+                    <DataTemplate DataType="model:ToDoListItem">
+                        <StackPanel Orientation="Horizontal">
+                            <CheckBox IsChecked="{Binding IsSelected, Mode=TwoWay}"/>
+                            <TextBox Width="600" Text="{Binding ListItemText, Mode=TwoWay}"/>
+                            <Button Content="Delete Entry" Command="{Binding DeleteItemCommand}"/>
+                        </StackPanel>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </StackPanel>
         
     </Grid>
 </UserControl>
